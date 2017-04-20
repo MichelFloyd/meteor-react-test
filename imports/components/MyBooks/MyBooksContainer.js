@@ -7,7 +7,10 @@ export default createContainer(() => {
   const handle = Meteor.subscribe('myBooks');
 
   return {
-    books: Books.find().fetch(),
+    books: Books.find().map(b => {
+      b.id = b._id;
+      return b;
+    }),
     // removeBooks: promisifyMethod(removeBooks),
   };
 }, MyBooks);
