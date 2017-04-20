@@ -44,11 +44,7 @@ class BookFinder extends Component {
       query: '',
     };
   }
-
-  bookSelectionUpdated = bookIds => {
-    this.setState({ bookSelections: bookIds });
-  };
-
+  
   saveBooks = () => {
     this.props.saveBooks.call({
       books: this.state.books.filter(

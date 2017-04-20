@@ -41,10 +41,6 @@ class MyBooks extends Component {
     };
   }
 
-  bookSelectionUpdated = bookIds => {
-    this.setState({ bookSelections: bookIds });
-  };
-
   removeBooks = () => {
     const bookIds= this.props.books.filter(
       book => this.props.selectedBookIds.indexOf(book.id) >= 0,
