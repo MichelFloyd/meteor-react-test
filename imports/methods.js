@@ -12,9 +12,24 @@ export const saveBooks = new ValidatedMethod({
 
   run({ books }) {
     try {
-      Books.batchInsert(books);
+      Books.batchInsert(books); // This allows the same book to be inserted multiple times in a user's collection
     } catch (e) {
       throw new Meteor.Error('save-error');
     }
   },
+});
+
+export const removeBooks = new ValidatedMethod({
+  name: 'removeBooks',
+
+  validate: new SimpleSchema({
+    bookIds: [String],
+  }).validator(),
+  run({ bookIds }){
+    try {
+      Books.remove({_id: {$in: bookIds}})
+    } catch (e) {
+      throw new Meteor.Error('remove-error');
+    }
+  }
 });
