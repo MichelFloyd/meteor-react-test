@@ -57,6 +57,7 @@ const Bookshelf = ({
     <div className={'bookshelf ' + classes.root}>
       {books.map(book => (
         <Book
+          key={book.id}
           book={book}
           selected={selectedBookIds.indexOf(book.etag) >= 0}
           onClick={onToggleBookSelection}
