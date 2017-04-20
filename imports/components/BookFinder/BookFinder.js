@@ -126,7 +126,7 @@ class BookFinder extends Component {
           />
           <button
             className={classes.searchButton}
-            disabled={this.state.fetching}
+            disabled={this.state.fetching || !this.state.query}
             type="submit"
           >
             Search
