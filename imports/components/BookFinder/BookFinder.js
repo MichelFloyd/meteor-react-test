@@ -52,7 +52,7 @@ class BookFinder extends Component {
   saveBooks = () => {
     this.props.saveBooks.call({
       books: this.state.books.filter(
-        book => this.props.selectedBookIds.indexOf(book.etag) >= 0,
+        book => this.props.selectedBookIds.indexOf(book.id) >= 0,
       ),
     });
   };
@@ -100,7 +100,11 @@ class BookFinder extends Component {
           {this.state.bookCount} books found. Showing 40.
         </div>
         <div className={classes.manageButtons}>
-          <button onClick={this.saveBooks}>Save to My Collection</button>
+          <button
+            disabled={!this.props.selectedBookIds.length}
+            onClick={this.saveBooks}
+          >
+            Save to My Collection</button>
         </div>
         <div className={classes.bookResults}>
           <Bookshelf
