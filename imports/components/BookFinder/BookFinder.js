@@ -46,13 +46,19 @@ class BookFinder extends Component {
   }
 
   saveBooks = () => {
-    const p = this.props.saveBooks.call({
+    this.props.saveBooks.call({
       books: this.state.books.filter(
         book => this.props.selectedBookIds.indexOf(book.id) >= 0,
       ),
-    });
-    p.catch(e => { console.log(e.error) } ); // the method returns a promise so we can catch the error here
-    this.props.onClearBookSelection();
+    }).then(
+      result => {
+        this.props.onClearBookSelection();
+        alert('Saved!');
+      },
+      err => {
+        alert('Error saving!');
+      }
+    );
   };
 
   searchBooks = async event => {
