@@ -90,6 +90,7 @@ class BookFinder extends Component {
     if (!this.state.bookCount) return null;
 
     const { classes } = this.props;
+    const n = this.props.selectedBookIds.length;
 
     return (
       <div>
@@ -101,7 +102,7 @@ class BookFinder extends Component {
             disabled={!this.props.selectedBookIds.length}
             onClick={this.saveBooks}
           >
-            Save to My Collection</button>
+            Save {n ? n + ' book' : ''}{n > 1 ? 's' : ''} to My Collection</button>
         </div>
         <div className={classes.bookResults}>
           <Bookshelf
