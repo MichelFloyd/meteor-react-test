@@ -31,7 +31,7 @@ Add the following new features and minor improvements:
 
 * On the "Find Books" page, make the "Save to My Collection" button only enabled once one or more books have been selected.
 * Make it so when a user saves books to their collection, the selected books are automatically deselected.
-* When books are saved (BookFinder.js, line 53), it's not really checking for any kind of errors. Added some simple error handling and show a success message (it can be as simple as a div with plain text).
+* When books are saved (BookFinder.js, line 53), it's not really checking for any kind of errors. Add some simple error handling and show a success message (it can be as simple as a div with plain text).
 
 ## Hints
 
