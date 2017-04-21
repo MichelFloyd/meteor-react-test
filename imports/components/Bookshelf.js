@@ -25,15 +25,13 @@ export const BookshelfHelper = Wrapped => {
 
     toggleBookSelection = bookId => {
       let newSelection = this.state.selectedBookIds;
-
-      if (!this.bookSelected(bookId)) {
-        newSelection = [...newSelection, bookId];
-      } else {
-        newSelection = newSelection.filter(id => id !== bookId);
-      }
-
+      newSelection = this.bookSelected(bookId) ? newSelection.filter(id => id !== bookId) : [...newSelection, bookId];
       this.setState({ selectedBookIds: newSelection });
     };
+
+    clearBookSelection = () => {
+      this.setState({ selectedBookIds: []});
+    }
 
     render() {
       return (
@@ -41,6 +39,7 @@ export const BookshelfHelper = Wrapped => {
           {...this.props}
           selectedBookIds={this.state.selectedBookIds}
           onToggleBookSelection={this.toggleBookSelection}
+          onClearBookSelection={this.clearBookSelection}
         />
       );
     }

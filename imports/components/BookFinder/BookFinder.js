@@ -44,7 +44,7 @@ class BookFinder extends Component {
       query: '',
     };
   }
-  
+
   saveBooks = () => {
     this.props.saveBooks.call({
       books: this.state.books.filter(

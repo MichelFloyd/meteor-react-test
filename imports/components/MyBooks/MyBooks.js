@@ -46,20 +46,20 @@ class MyBooks extends Component {
       book => this.props.selectedBookIds.indexOf(book.id) >= 0,
     ).map(book => book._id);
     this.props.removeBooks.call({ bookIds });
-  };
+  }
+
   render() {
     const { classes } = this.props;
+    const n = this.props.selectedBookIds.length;
     return (
       <div>
         <div className={classes.bookCount}>
           {this.props.books.length} books in your collection.
         </div>
         <div className={classes.manageButtons}>
-          <button
-            disabled={!this.props.selectedBookIds.length}
-            onClick={this.removeBooks}
-          >
-            Remove from my Collection</button>
+          <button disabled={!this.props.selectedBookIds.length} onClick={this.removeBooks}>
+            Remove {n ? n + ' book' : ''}{n > 1 ? 's' : ''} from my Collection
+          </button>
         </div>
         <div className={classes.bookResults}>
           <Bookshelf
