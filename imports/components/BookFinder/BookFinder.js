@@ -51,6 +51,7 @@ class BookFinder extends Component {
         book => this.props.selectedBookIds.indexOf(book.id) >= 0,
       ),
     });
+    this.props.onClearBookSelection();
   };
 
   searchBooks = async event => {
