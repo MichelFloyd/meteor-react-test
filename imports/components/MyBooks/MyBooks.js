@@ -43,7 +43,7 @@ class MyBooks extends Component {
 
   removeBooks = () => {
     const bookIds= this.props.books.filter(
-      book => this.props.selectedBookIds.indexOf(book.id) >= 0,
+      book => this.props.selectedBookIds.indexOf(book.etag) >= 0,
     ).map(book => book._id);
     this.props.removeBooks.call({ bookIds });
     this.props.onClearBookSelection();

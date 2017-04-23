@@ -56,10 +56,10 @@ const Bookshelf = ({
     <div className={'bookshelf ' + classes.root}>
       {books.map( book => (
         <Book
-          key={book.id}
+          key={book.etag}
           book={book}
-          selected={selectedBookIds.indexOf(book.id) >= 0}
-          onClick={onToggleBookSelection.bind(this,book.id)}
+          selected={selectedBookIds.indexOf(book.etag) >= 0}
+          onClick={onToggleBookSelection.bind(this,book.etag)}
         />
       ))}
     </div>

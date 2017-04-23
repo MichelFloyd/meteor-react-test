@@ -10,7 +10,7 @@ export default createContainer(() => {
 
   return {
     books: Books.find().map(b => {
-      b.id = b._id; // required to ensure uniqueness in the user's collection when viewing
+      b.etag = b._id; // required to ensure uniqueness in the user's collection when viewing
       return b;
     }),
     removeBooks: promisifyMethod(removeBooks),
